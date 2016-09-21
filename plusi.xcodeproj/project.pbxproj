@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AFCFFEF01D91A8BF004DD409 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFCFFEEF1D91A8BF004DD409 /* main.cpp */; };
+		AF28D8D01D9318400051C8F7 /* bimap.hpp in Sources */ = {isa = PBXBuildFile; fileRef = AFCFFEF71D91A8D5004DD409 /* bimap.hpp */; };
+		AF28D8D51D93274A0051C8F7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFCFFEEF1D91A8BF004DD409 /* main.cpp */; };
+		AF28D8D71D9328020051C8F7 /* tester.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF28D8D61D9328020051C8F7 /* tester.cpp */; };
+		AFCFFEF81D91A8D5004DD409 /* bimap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFCFFEF61D91A8D5004DD409 /* bimap.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +26,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF28D8D61D9328020051C8F7 /* tester.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tester.cpp; sourceTree = "<group>"; };
 		AFCFFEEC1D91A8BF004DD409 /* plusi */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = plusi; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCFFEEF1D91A8BF004DD409 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		AFCFFEF61D91A8D5004DD409 /* bimap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bimap.cpp; sourceTree = "<group>"; };
+		AFCFFEF71D91A8D5004DD409 /* bimap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = bimap.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +63,10 @@
 		AFCFFEEE1D91A8BF004DD409 /* plusi */ = {
 			isa = PBXGroup;
 			children = (
+				AF28D8D61D9328020051C8F7 /* tester.cpp */,
 				AFCFFEEF1D91A8BF004DD409 /* main.cpp */,
+				AFCFFEF61D91A8D5004DD409 /* bimap.cpp */,
+				AFCFFEF71D91A8D5004DD409 /* bimap.hpp */,
 			);
 			path = plusi;
 			sourceTree = "<group>";
@@ -118,7 +127,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFCFFEF01D91A8BF004DD409 /* main.cpp in Sources */,
+				AF28D8D51D93274A0051C8F7 /* main.cpp in Sources */,
+				AF28D8D01D9318400051C8F7 /* bimap.hpp in Sources */,
+				AF28D8D71D9328020051C8F7 /* tester.cpp in Sources */,
+				AFCFFEF81D91A8D5004DD409 /* bimap.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +251,7 @@
 				AFCFFEF51D91A8BF004DD409 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
