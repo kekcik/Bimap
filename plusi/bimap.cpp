@@ -28,7 +28,7 @@ bimap::left_iterator bimap::insert(bimap::left_t const& left, bimap::right_t con
     bimap::node* data = new node();
     bimap::node* cur_left = root;
     bimap::node* cur_right = root;
-
+    
     data -> left_data = left;
     data -> right_data = right;
     
@@ -37,7 +37,7 @@ bimap::left_iterator bimap::insert(bimap::left_t const& left, bimap::right_t con
     bool correct = true;
     bool left_is_left = true;
     bool right_is_left = true;
-
+    
     if (cur_left -> left_left == nullptr) {
         data -> left_parent = root;
         data -> right_parent = root;
@@ -112,35 +112,42 @@ bimap::left_iterator bimap::insert(bimap::left_t const& left, bimap::right_t con
 bimap::left_iterator bimap::find_left (left_t  const& left)  const {
     node* cur = root -> left_left;
     left_iterator ans;
+    ans.select = root;
+    if (cur == nullptr) return ans;
     while (true) {
-        
         if (cur -> left_data == left) {
             ans.select = cur;
             return ans;
         }
         if (cur -> left_data > left) {
-
+            if (cur -> left_left == nullptr) return ans;
             cur = cur -> left_left;
+            continue;
         }
         if (cur -> left_data < left) {
-            
+            if (cur -> left_right == nullptr) return ans;
             cur = cur -> left_right;
+            continue;
         }
     }
 };
 bimap::right_iterator bimap::find_right(right_t const& right) const {
     node* cur = root -> right_left;
     right_iterator ans;
+    ans.select = root;
+    if (cur == nullptr) return ans;
     while (true) {
         if (cur -> right_data == right) {
             ans.select = cur;
             return ans;
         }
         if (cur -> right_data > right) {
+            if (cur -> right_left == nullptr) return ans;
             cur = cur -> right_left;
             continue;
         }
         if (cur -> right_data < right) {
+            if (cur -> right_right == nullptr) return ans;
             cur = cur -> right_right;
             continue;
         }
@@ -150,12 +157,12 @@ bimap::right_iterator bimap::find_right(right_t const& right) const {
 bimap::left_iterator bimap::begin_left() const {
     node* cur = root -> left_left;
     left_iterator ans;
-
+    
     if (cur == nullptr) {
         ans.select = root;
         return ans;
     }
-
+    
     while (true) {
         if (cur -> left_left == nullptr) {
             ans.select = cur;
@@ -203,6 +210,7 @@ bimap::right_t const& bimap::right_iterator::operator*() const {
 
 bimap::left_iterator& bimap::left_iterator::operator++() {
     node* cur = select;
+    
     if (cur -> left_right != nullptr) {
         cur = cur -> left_right;
         while (true) {
@@ -320,7 +328,7 @@ bimap::left_iterator bimap::left_iterator::operator++(int) {
     
     ans.select = cur;
     select = cur;
-
+    
     if (cur -> left_right != nullptr) {
         cur = cur -> left_right;
         while (true) {
@@ -408,7 +416,7 @@ bimap::right_iterator bimap::right_iterator::operator++(int) {
         select = cur;
         return ans;
     }
-
+    
 };
 bimap::right_iterator bimap::right_iterator::operator--(int) {
     right_iterator ans;
@@ -502,7 +510,7 @@ void bimap::erase (bimap::left_iterator it) {
             it.select -> right_parent -> right_right = nullptr;
         }
     }
-
+    
     if (it.select -> right_left != nullptr and it.select -> right_right == nullptr) {
         if (it.select -> right_parent -> right_left == it.select) {
             it.select -> right_parent -> right_left = it.select -> right_left;
